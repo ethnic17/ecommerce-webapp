@@ -5,9 +5,11 @@ from flask import render_template, flash, redirect, url_for, request
 from winepro import db, bcrypt, mail
 from flask import current_app
 from winepro.models import User, Item
-from winepro.forms import RegistrationForm, LoginForm, UpdateAccount, AddItemForm, EditItemForm, ResetPasswordForm, RequestResetForm
+from winepro.users.forms import RegistrationForm, LoginForm, UpdateAccount, AddItemForm, EditItemForm
+from winepro.items.forms import  ResetPasswordForm, RequestResetForm
 from flask_login import login_user, current_user, logout_user, login_required 
 from flask_mail import Message
+
 
 
 def savepic1(form_pic):

@@ -56,6 +56,11 @@ def create_app(config_class=Config):
     app.register_blueprint(main)
     app.register_blueprint(errors)
 
+    # # Ensure the database tables exist (creates sqlite tables if they are missing).
+    # # This is a simple fallback for development; for production use migrations instead.
+    # with app.app_context():
+    #     db.create_all()
+
     return app
 
 #now we can't import app because we don't have app variable

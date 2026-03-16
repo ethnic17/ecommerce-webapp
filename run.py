@@ -1,8 +1,10 @@
 """now it's job is to only run, so we will rename it to run.py"""
 # from winepro import app #it will import from the init file means whenever we import something from package, it is imported from the init filw
-from winepro import create_app # now we can create our apps
+from winepro import create_app, db # now we can create our apps
 app = create_app()
 if(__name__=="__main__"):
+    with app.app_context():
+        db.create_all()
     app.run()
 
 
