@@ -1,0 +1,34 @@
+#virtual_env
+.env
+venv/
+
+#cache
+__pycache__/
+*.pyc
+
+#instance
+instance/site.db
+
+#self explaination files
+blueprints.txt
+deployment.txt
+initfileflask.docx
+why_hashed_passwords.txt
+rd.txt
+usebootsrap.txt
+note.txt
+readmee.txt
+formsanduserinput.txt
+read.txt
+
+#python explaination files
+no_use_1intro.py
+
+#editor files
+.vscode/
+
+#os files
+.DS_Store
+
+
+

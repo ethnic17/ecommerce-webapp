@@ -1,0 +1,69 @@
+<!-- most of the things are done for register, now we will copy the template for login also -->
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <form method="POST" action="">
+        <!-- action is blank space which means it will send the information to the current route only -->
+        {{ form.hidden_tag() }}
+
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Reset Request</legend>
+
+            
+            
+            <div class="form-group">
+                {{ form.password.label(class="form-control-label") }}
+                <!-- we need label because they help to screen readers, keyboard 
+                if we click on the username, which will be showned, nothing will happen is label is not used, but it will jump to input if label is used -->
+
+                <!-- if user input wrong information, then we want to display error, so we do like below -->
+                
+                {% if form.password.errors %}
+                <!-- above checks if we have errors in form.username -->
+                    {{ form.password(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                            <span> {{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.password(class="form-control form-control-lg") }}
+                {% endif %}
+
+                <!-- above is for styling only -->
+            </div>
+
+            <div class="form-group">
+                {{ form.confirm_password.label(class="form-control-label") }}
+                <!-- we need label because they help to screen readers, keyboard 
+                if we click on the username, which will be showned, nothing will happen is label is not used, but it will jump to input if label is used -->
+
+                <!-- if user input wrong information, then we want to display error, so we do like below -->
+                
+                {% if form.confirm_password.errors %}
+                <!-- above checks if we have errors in form.username -->
+                    {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.confirm_password.errors %}
+                            <span> {{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.confirm_password(class="form-control form-control-lg") }}
+                {% endif %}
+
+                <!-- above is for styling only -->
+            </div>
+            
+        </fieldset>
+
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+
+    </form>
+
+
+{% endblock %}

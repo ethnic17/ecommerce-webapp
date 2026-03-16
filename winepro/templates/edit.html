@@ -1,0 +1,77 @@
+<!-- most of the things are done for register, now we will copy the template for login also -->
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <form method="POST" action="">
+        <!-- action is blank space which means it will send the information to the current route only -->
+        {{ form.hidden_tag() }}
+
+        <fieldset class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <!-- <img src="{{ image_file }}" alt=""/> -->
+                        <div class="file btn btn-lg btn-primary">
+                            Change Brand Picture
+                            {{ form.pic(class="form-control-file") }}
+                            <!-- we use the above line so that the file input appears on the page and the file gets rendered to the webpage-->
+                            <!-- the name = "file", we will access the file in python using the key file -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="profile-head">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form.brandname.label(class="form-control-label") }}
+                <!-- we need label because they help to screen readers, keyboard 
+                if we click on the username, which will be showned, nothing will happen is label is not used, but it will jump to input if label is used -->
+
+                <!-- if user input wrong information, then we want to display error, so we do like below -->
+                
+                {% if form.brandname.errors %}
+                <!-- above checks if we have errors in form.brandname -->
+                    {{ form.brandname(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.brandname.errors %}
+                            <span> {{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.brandname(class="form-control form-control-lg") }}
+                {% endif %}
+
+                <!-- above is for styling only -->
+            </div>
+
+            <div class="form-group">
+                {{ form.price.label(class="form-control-label") }}
+                {% if form.price.errors %}
+                <!-- above checks if we have errors in form.username -->
+                    {{ form.price(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.price.errors %}
+                            <span> {{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.price(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+                     
+        </fieldset>
+
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+
+
+{% endblock %}

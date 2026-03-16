@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<link href="https://font.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='item.css') }}">
+
+<div id="make-3D-space">
+    <div id="product-card">
+
+    <!-- FRONT SIDE -->
+    <div id="product-front">
+
+        <div class="shadow"></div>
+
+        <img src="{{url_for('static', filename='brandimages/'+item.brandpic)}}" alt="">
+
+        <div class="image_overlay"></div>
+
+        <div class="stats">
+            <div class="stats-container">
+
+                <span class="product_price">{{item.rate}}</span>
+                <span class="product_name">{{item.brand}}</span>
+
+                <p>Added by {{item.author.username}}</p>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- jQuery -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='item.js') }}"></script>
+
+{% endblock %}
